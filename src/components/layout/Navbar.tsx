@@ -1,7 +1,6 @@
 import Link from "next/link";
 import * as React from "react";
-import { useSelector } from "react-redux";
-import { getUserState } from "../../store/users/slice";
+import { useAppSelector } from "../../store/hooks";
 
 const links = [
   { href: "/watchlist", label: "Watchlist" },
@@ -9,7 +8,7 @@ const links = [
 ];
 
 export const Navbar: React.FC = () => {
-  const { user } = useSelector(getUserState);
+  const user = useAppSelector((state) => state.users.user);
   const [open, setOpen] = React.useState(false);
 
   return (
@@ -20,7 +19,7 @@ export const Navbar: React.FC = () => {
           <Link className="text-2xl font-semibold" href="/">
             <img
               className="rounded-full w-10 border-2 border-transparent hover:border-indigo-400"
-              src={`https://robohash.org/${Math.floor(Math.random() * (1000 - 1 + 1))}`}
+              src={`https://robohash.org/1111`}
               alt="Logo"
             />
           </Link>

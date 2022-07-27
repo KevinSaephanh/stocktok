@@ -13,8 +13,8 @@ const initialState: UserState = {
   error: null,
 };
 
-const usersSlice = createSlice({
-  name: "users",
+const userSlice = createSlice({
+  name: "user",
   initialState,
   reducers: {
     setUser: (
@@ -26,10 +26,9 @@ const usersSlice = createSlice({
   },
 });
 
-// Export state
-export const getUserState = (state: { user: UserState }) => state.user;
+export const userSelector = (state: UserState) => state.user;
 
 // Export all actions
-export const { setUser } = usersSlice.actions;
+export const { setUser } = userSlice.actions;
 
-export default usersSlice.reducer;
+export default userSlice.reducer;
