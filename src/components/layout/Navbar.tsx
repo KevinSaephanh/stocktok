@@ -1,6 +1,7 @@
 import Link from "next/link";
 import * as React from "react";
 import { useAppSelector } from "../../store/hooks";
+import Pepe from "../../assets/pepe-business.png";
 
 const links = [
   { href: "/watchlist", label: "Watchlist" },
@@ -12,38 +13,28 @@ export const Navbar: React.FC = () => {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <nav className="w-full sticky flex shadow-lg p-4">
+    <nav className="bg-white w-full px-2 sm:px-4 py-2.5 dark:bg-gray-900 flex h-10 sticky">
       <div className="flex space-x-7">
-        {/* <!-- Website Logo --> */}
-        <div className="w-3/12 flex items-center">
-          <Link className="text-2xl font-semibold" href="/">
-            <img
-              className="rounded-full w-10 border-2 border-transparent hover:border-indigo-400"
-              src={`https://robohash.org/1111`}
-              alt="Logo"
-            />
+        {/* Logo */}
+        <div className="flex justify-between md:w-auto md:static md:block md:justify-start">
+          <Link href="/">
+            <img className="h-5" src={Pepe.src} alt="Logo" />
           </Link>
         </div>
-        {/* <!-- Primary Navbar items --> */}
 
+        {/* Nav Items */}
         <div className="hidden w-full lg:inline-flex lg:flex-grow lg:w-auto">
           <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto">
-            <Link href="/">
-              <a className="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-green-600 hover:text-white">
-                Services
-              </a>
-            </Link>
-            <Link href="/">
-              <a className="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-green-600 hover:text-white">
-                About us
-              </a>
-            </Link>
-            <Link href="/">
-              <a className="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-green-600 hover:text-white">
-                Contact us
-              </a>
-            </Link>
-            {!!user ? (
+            {links.map((link, key) => (
+              <Link href={link.href} key={key}>
+                <a className="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-green-600 hover:text-white">
+                  {link.label}
+                </a>
+              </Link>
+            ))}
+
+            {/* Auth */}
+            {!user ? (
               <>
                 <Link href="/">
                   <a className="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-green-600 hover:text-white">

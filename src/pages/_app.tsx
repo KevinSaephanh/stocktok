@@ -3,13 +3,16 @@ import type { AppProps } from "next/app";
 import { Layout } from "../components/layout/Layout";
 import { Provider } from "react-redux";
 import { store } from "../store";
+import { ThemeProvider } from "next-themes";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <ThemeProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ThemeProvider>
     </Provider>
   );
 }

@@ -7,5 +7,5 @@ const links = [
 ];
 
 export const Footer: React.FC = () => {
-  return <footer>FOOTER</footer>;
+  return <footer className="flex items-center h-10">FOOTER</footer>;
 };

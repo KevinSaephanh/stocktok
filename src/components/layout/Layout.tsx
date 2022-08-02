@@ -8,10 +8,10 @@ type LayoutProps = {
 
 export const Layout: React.FC<LayoutProps> = ({ children }: { children: React.ReactNode }) => {
   return (
-    <>
+    <div className="flex h-screen flex-col justify-between">
       <Navbar />
-      {children}
+      <div className="flex flex-1 overflow-auto">{children}</div>
       <Footer />
-    </>
+    </div>
   );
 };

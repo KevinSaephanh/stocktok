@@ -26,8 +26,6 @@ const userSlice = createSlice({
   },
 });
 
-export const userSelector = (state: UserState) => state.user;
-
 // Export all actions
 export const { setUser } = userSlice.actions;
 
