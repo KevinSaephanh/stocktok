@@ -10,7 +10,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }: { children: React.Re
   return (
     <div className="flex h-screen flex-col justify-between">
       <Navbar />
-      <div className="flex flex-1 overflow-auto">{children}</div>
+      <main className="p-5">{children}</main>
       <Footer />
     </div>
   );

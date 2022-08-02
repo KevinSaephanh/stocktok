@@ -4,11 +4,15 @@ import { Layout } from "../components/layout/Layout";
 import { Provider } from "react-redux";
 import { store } from "../store";
 import { ThemeProvider } from "next-themes";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
+import { Seo } from "../components/Seo";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
-      <ThemeProvider>
+      <ThemeProvider attribute="class">
+        <Seo />
+
         <Layout>
           <Component {...pageProps} />
         </Layout>
