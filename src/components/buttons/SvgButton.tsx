@@ -10,7 +10,7 @@ export const SvgButton: React.FC<SvgButtonProps> = ({ index, path, handleClick }
   return (
     <>
       <svg
-        className="block h-6 w-6 mt-2 ml-5 md:ml-10 rounded-full cursor-pointer hover:text-white hover:bg-gray-500"
+        className="block h-8 w-8 rounded-full cursor-pointer hover:text-blue-500 dark:hover:text-slate-400"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
