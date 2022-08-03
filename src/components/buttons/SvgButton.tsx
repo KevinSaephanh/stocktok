@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React from "react";
 
 type SvgButtonProps = {
   index?: number;
@@ -6,7 +6,7 @@ type SvgButtonProps = {
   handleClick: Function;
 };
 
-export const SvgButton: FC<SvgButtonProps> = ({ index, path, handleClick }) => {
+export const SvgButton: React.FC<SvgButtonProps> = ({ index, path, handleClick }) => {
   return (
     <>
       <svg
