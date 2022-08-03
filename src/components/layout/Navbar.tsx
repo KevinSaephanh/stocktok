@@ -39,10 +39,10 @@ export const Navbar: React.FC = () => {
         </div>
 
         {/* Search and Theme Buttons */}
-        <div className="lg:self-center flex items-center mb-4 lg:mb-0">
+        <div className="md:flex flex-grow items-center">
           <button
             type="submit"
-            className="absolute top-0 right-0 p-2.5 text-sm font-medium text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className="p-2 text-sm font-medium text-black dark:text-white rounded-full hover:text-blue-500 hover:bg-slate-400 focus:ring-4 focus:outline-none focus:ring-slate-300 dark:hover:bg-slate-700 dark:focus:ring-slate-800"
           >
             <svg
               aria-hidden="true"

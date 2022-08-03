@@ -1,17 +1,17 @@
-import { useEffect, useState } from "react";
+import * as React from "react";
 import { useTheme } from "next-themes";
 
-export const ThemeButton = () => {
-  const [mounted, setMounted] = useState(false);
+export const ThemeButton: React.FC = () => {
+  const [mounted, setMounted] = React.useState(false);
   const { theme, setTheme, resolvedTheme } = useTheme();
 
-  useEffect(() => setMounted(true), []);
+  React.useEffect(() => setMounted(true), []);
 
   return (
     <button
       aria-label="Toggle Dark Mode"
       type="button"
-      className="h-8 w-8 rounded p-1 sm:ml-4 hover:border-4 hover:border-slate-400"
+      className="h-8 w-8 rounded-full p-1 sm:ml-4 hover:border-2 hover:bg-slate-400 dark:hover:bg-slate-700"
       onClick={() => setTheme(theme === "dark" || resolvedTheme === "dark" ? "light" : "dark")}
     >
       <svg
