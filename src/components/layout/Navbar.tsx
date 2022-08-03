@@ -2,95 +2,82 @@ import Link from "next/link";
 import * as React from "react";
 import { useAppSelector } from "../../store/hooks";
 import Pepe from "../../assets/pepe-business.png";
-import { ThemeSwitch } from "../theme/ThemeSwitch";
-
-const primaryLinks = [
-  { href: "/watchlist", label: "Watchlist" },
-  { href: "/help", label: "Help Center" },
-];
-
-const authLinks = [
-  { href: "/signup", label: "Signup" },
-  { href: "/login", label: "Login" },
-];
+import { ThemeButton } from "../buttons/ThemeButton";
+import { SvgButton } from "../buttons/SvgButton";
+import { NavLink } from "../link/NavLink";
 
 export const Navbar: React.FC = () => {
   const user = useAppSelector((state) => state.users.user);
   const [open, setOpen] = React.useState(false);
 
   return (
-    <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
-      <div className="container flex flex-wrap justify-between items-center mx-auto">
-        {/* Logo */}
-        <Link href="/">
-          <a href="https://flowbite.com/" className="flex items-center">
-            <img src={Pepe.src} className="mr-3 h-6 sm:h-9" alt="Logo" />
-          </a>
-        </Link>
+    <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900">
+      <div className="flex flex-wrap items-center justify-between">
+        <div className="w-full relative flex justify-between md:w-auto md:static md:block md:justify-start">
+          {/* Logo */}
+          <Link href="/">
+            <a href="#" className="flex items-center">
+              <img src={Pepe.src} className="mr-3 h-6 sm:h-9" alt="Logo" />
+            </a>
+          </Link>
 
-        {/* Hamburger menu */}
-        <button
-          data-collapse-toggle="navbar-default"
-          type="button"
-          className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-          aria-controls="navbar-default"
-          aria-expanded="false"
-        >
-          <span className="sr-only">Open main menu</span>
-          <svg
-            className="w-6 h-6"
-            aria-hidden="true"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
+          {/* Hamburger menu */}
+          <button
+            data-collapse-toggle="mobile-menu"
+            type="button"
+            className="inline-flex items-center p-2 ml-3 text-white rounded-lg md:hidden"
+            aria-controls="mobile-menu-2"
+            aria-expanded="false"
+            onClick={() => setOpen(!open)}
           >
-            <path
-              fillRule="evenodd"
-              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-              clipRule="evenodd"
-            ></path>
-          </svg>
-        </button>
+            {!open ? (
+              <SvgButton path={"M4 6h16M4 12h16M4 18h16"} handleClick={() => {}} />
+            ) : (
+              <SvgButton path={"M6 18L18 6M6 6l12 12"} handleClick={() => {}} />
+            )}
+          </button>
+        </div>
 
-        <ThemeSwitch />
+        {/* Search and Theme Buttons */}
+        <div className="lg:self-center flex items-center mb-4 lg:mb-0">
+          <button
+            type="submit"
+            className="absolute top-0 right-0 p-2.5 text-sm font-medium text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            <svg
+              aria-hidden="true"
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              ></path>
+            </svg>
+            <span className="sr-only">Search</span>
+          </button>
+          <ThemeButton />
+        </div>
 
         {/* Links */}
-        <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-          <ul className="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-            {/* Primary */}
-            {primaryLinks.map((link, key) => (
-              <Link href={link.href} key={key}>
-                <a
-                  className="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-                  aria-current="page"
-                >
-                  {link.label}
-                </a>
-              </Link>
-            ))}
-
-            {/* Auth */}
+        <div
+          className={"md:flex flex-grow items-center" + (open ? " flex" : " hidden")}
+          id="example-navbar-danger"
+        >
+          <ul className="flex flex-col md:flex-row list-none md:ml-auto bg-gray-50 rounded-lg border border-gray-100 md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <NavLink href={"/help"} label={"Help Center"} />
             {!user ? (
               <>
-                {authLinks.map((link, key) => (
-                  <Link href={link.href} key={key}>
-                    <a
-                      className="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-                      aria-current="page"
-                    >
-                      {link.label}
-                    </a>
-                  </Link>
-                ))}
+                <NavLink href={"#"} label={"Signup"} />
+                <NavLink href={"#"} label={"Login"} />
               </>
             ) : (
-              <>
-                <Link href="/">
-                  <a className="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white">
-                    Logout
-                  </a>
-                </Link>
-              </>
+              <NavLink href={"#"} label={"Logout"} />
             )}
           </ul>
         </div>
