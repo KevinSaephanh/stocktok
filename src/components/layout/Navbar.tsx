@@ -11,7 +11,7 @@ export const Navbar: React.FC = () => {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900">
+    <nav className="border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900">
       <div className="flex flex-wrap items-center justify-between">
         {/* Logo */}
         <Link href="/">
@@ -25,7 +25,7 @@ export const Navbar: React.FC = () => {
           <div className="flex flex-grow items-center">
             <button
               type="submit"
-              className="p-2 font-medium text-black dark:text-white rounded-full hover:text-blue-500 hover:bg-slate-400 focus:ring-4 focus:outline-none focus:ring-slate-300 dark:hover:bg-slate-700 dark:focus:ring-slate-800"
+              className="p-2 font-medium text rounded-full hover:text-blue-500 hover:bg-slate-400 focus:ring-4 focus:outline-none focus:ring-slate-300 dark:hover:bg-slate-700 dark:focus:ring-slate-800"
             >
               <svg
                 aria-hidden="true"
@@ -51,7 +51,7 @@ export const Navbar: React.FC = () => {
           <button
             data-collapse-toggle="mobile-menu"
             type="button"
-            className="inline-flex items-center p-2 ml-2 text-black dark:text-white rounded-lg md:hidden"
+            className="inline-flex items-center p-2 ml-2 text rounded-lg md:hidden"
             aria-controls="mobile-menu-2"
             aria-expanded="false"
             onClick={() => setOpen(!open)}
@@ -72,7 +72,7 @@ export const Navbar: React.FC = () => {
           }
           id="example-navbar-danger"
         >
-          <ul className="flex flex-col p-4 mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 bg-gray-50 rounded-lg border border-gray-100 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <ul className="flex flex-col p-4 mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 rounded-lg border border-gray-100 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <NavLink href={"/about"} label={"About"} />
             <NavLink href={"/help"} label={"Help Center"} />
             {!user ? (

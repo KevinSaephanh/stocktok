@@ -10,7 +10,9 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="flex h-screen flex-col justify-between">
       <Navbar />
-      <main className="p-5">{children}</main>
+      <main role="main" className="p-5">
+        {children}
+      </main>
       <Footer />
     </div>
   );
