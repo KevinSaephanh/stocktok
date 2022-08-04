@@ -43,34 +43,30 @@ const sections = [
   },
 ];
 
+const links = [
+  { href: "", label: "About" },
+  { href: "", label: "Privacy Policy" },
+  { href: "", label: "Terms & Conditions" },
+  { href: "", label: "Contact" },
+];
+
 export const Footer: React.FC = () => {
   return (
-    <footer className="border-gray-200 dark:bg-gray-900">
-      <div className="grid grid-cols-2 gap-8 py-8 px-6 md:grid-cols-3">
-        {sections.map((section, key) => (
-          <div key={key}>
-            <h2 className="mb-6 text-sm font-bold uppercase text">{section.title}</h2>
-            <ul>
-              {section.links.map((link, index) => (
-                <li className="mb-4" key={index}>
-                  <Link href={link.href}>
-                    <a href="#" className="hover:underline font-medium link-item text">
-                      {link.label}
-                    </a>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-      <span className="block py-4 text-sm text-center text">
-        © 2022 {""}
-        <a href="#" className="hover:underline">
-          Company™
-        </a>
-        . All Rights Reserved.
+    <footer className="p-4 rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-900">
+      <span className="text-sm sm:text-center themed-text">
+        © 2022 Company™ . All Rights Reserved.
       </span>
+      <ul className="flex flex-wrap items-center mt-3 text-sm sm:mt-0">
+        {links.map((link, key) => (
+          <li key={key}>
+            <Link href={link.href}>
+              <a href="#" className="mr-4 hover:underline md:mr-6 themed-text">
+                {link.label}
+              </a>
+            </Link>
+          </li>
+        ))}
+      </ul>
     </footer>
   );
 };

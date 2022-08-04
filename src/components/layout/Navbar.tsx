@@ -16,7 +16,7 @@ export const Navbar: React.FC = () => {
         {/* Logo */}
         <Link href="/">
           <a href="#">
-            <img src={Pepe.src} className="mr-3 h-9" alt="Logo" />
+            <img src={Pepe.src} className="mr-3 h-9 ml-2" alt="Logo" />
           </a>
         </Link>
 
@@ -25,7 +25,7 @@ export const Navbar: React.FC = () => {
           <div className="flex flex-grow items-center">
             <button
               type="submit"
-              className="p-2 font-medium text rounded-full hover:text-blue-500 hover:bg-slate-400 focus:ring-4 focus:outline-none focus:ring-slate-300 dark:hover:bg-slate-700 dark:focus:ring-slate-800"
+              className="p-2 font-medium themed-text rounded-full hover:text-blue-500 hover:bg-slate-400 focus:ring-4 focus:outline-none focus:ring-slate-300 dark:hover:bg-slate-700 dark:focus:ring-slate-800"
             >
               <svg
                 aria-hidden="true"
@@ -51,7 +51,7 @@ export const Navbar: React.FC = () => {
           <button
             data-collapse-toggle="mobile-menu"
             type="button"
-            className="inline-flex items-center p-2 ml-2 text rounded-lg md:hidden"
+            className="inline-flex items-center p-2 ml-2 themed-text rounded-lg md:hidden"
             aria-controls="mobile-menu-2"
             aria-expanded="false"
             onClick={() => setOpen(!open)}
