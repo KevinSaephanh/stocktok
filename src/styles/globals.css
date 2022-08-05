@@ -12,6 +12,6 @@
   }
 
   input {
-    @apply text-black font-semibold text-xl rounded-full bg-white border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500;
+    @apply text-black font-semibold text-xl rounded-full bg-white border-4 focus:ring-blue-500 focus:border-blue-500;
   }
 }
