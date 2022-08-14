@@ -3,8 +3,9 @@ import * as React from "react";
 import { useAppSelector } from "../../store/hooks";
 import Pepe from "../../assets/pepe-business.png";
 import { ThemeButton } from "../buttons/ThemeButton";
-import { SvgButton } from "../buttons/SvgButton";
 import { NavLink } from "../link/NavLink";
+import { HamburgerButton } from "../buttons/HamburgerButton";
+import { SearchButton } from "../buttons/SearchButton";
 
 export const Navbar: React.FC = () => {
   const user = useAppSelector((state) => state.users.user);
@@ -27,21 +28,12 @@ export const Navbar: React.FC = () => {
               type="submit"
               className="p-2 font-medium themed-text rounded-full hover:text-blue-500 hover:bg-slate-400 focus:ring-4 focus:outline-none focus:ring-slate-300 dark:hover:bg-slate-700 dark:focus:ring-slate-800"
             >
-              <svg
-                aria-hidden="true"
-                className="w-6 h-6"
+              <SearchButton
+                classes="w-6 h-6"
                 fill="none"
-                stroke="currentColor"
                 viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                ></path>
-              </svg>
+                path="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
               <span className="sr-only">Search</span>
             </button>
             <ThemeButton />
@@ -57,9 +49,9 @@ export const Navbar: React.FC = () => {
             onClick={() => setOpen(!open)}
           >
             {!open ? (
-              <SvgButton path={"M4 6h16M4 12h16M4 18h16"} handleClick={() => {}} />
+              <HamburgerButton path={"M4 6h16M4 12h16M4 18h16"} />
             ) : (
-              <SvgButton path={"M6 18L18 6M6 6l12 12"} handleClick={() => {}} />
+              <HamburgerButton path={"M6 18L18 6M6 6l12 12"} />
             )}
           </button>
         </div>
