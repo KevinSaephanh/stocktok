@@ -69,8 +69,8 @@ export const Navbar: React.FC = () => {
             <NavLink href={"/help"} label={"Help Center"} />
             {!user ? (
               <>
-                <NavLink href={"#"} label={"Signup"} />
-                <NavLink href={"#"} label={"Login"} />
+                <NavLink href={"/signup"} label={"Signup"} />
+                <NavLink href={"/login"} label={"Login"} />
               </>
             ) : (
               <NavLink href={"#"} label={"Logout"} />

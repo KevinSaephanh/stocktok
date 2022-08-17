@@ -17,7 +17,7 @@ const Home: NextPage = () => {
 
   return (
     <div className="container flex items-center justify-between mx-auto">
-      <div className="relative md:px-20 w-full sm:w-3/5 max-w-2xl">
+      <div className="relative md:px-20 w-full sm:w-5/6 max-w-3xl">
         <h1 className="text-6xl font-bold tracking-wide pb-8 md:pb-12">Title or Welcome Here</h1>
         <div className="relative w-full">
           <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
