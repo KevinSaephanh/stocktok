@@ -38,12 +38,7 @@ export const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
             id="exampleCheck3"
             checked
           />
-          <label
-            className="form-check-label inline-block text-gray-800"
-            // for="exampleCheck2"
-          >
-            Remember me
-          </label>
+          <label className="form-check-label inline-block text-gray-800">Remember me</label>
         </div>
         <a
           href="#!"

@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import * as React from "react";
 import { AuthForm } from "../components/forms/auth/AuthForm";
 
-const Auth: NextPage = () => {
+const Login: NextPage = () => {
   return (
     <>
       <div className="container px-6 py-12 h-full">
@@ -21,4 +21,4 @@ const Auth: NextPage = () => {
   );
 };
 
-export default Auth;
+export default Login;
