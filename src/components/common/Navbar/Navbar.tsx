@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import * as React from 'react';
 import { useAppSelector } from '../../../store/hooks';
-import Pepe from '../../assets/pepe-business.png';
+import Pepe from '../../../assets/pepe-business.png';
 import { ThemeButton } from '../../ui/Buttons/ThemeButton';
 import { NavLink } from './NavLink';
 import { HamburgerButton } from '../../ui/Buttons/HamburgerButton';
