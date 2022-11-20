@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import { AuthForm } from '../components/auth/AuthForm';
 
-const Login: NextPage = () => {
+const Signup: NextPage = () => {
   return (
     <>
       <div className="container px-6 py-12 h-full">
@@ -13,11 +13,11 @@ const Login: NextPage = () => {
               alt="Phone image"
             />
           </div>
-          <AuthForm route="login" />
+          <AuthForm route="signup" />
         </div>
       </div>
     </>
   );
 };
 
-export default Login;
+export default Signup;

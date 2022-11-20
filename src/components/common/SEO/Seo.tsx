@@ -1,20 +1,21 @@
-import Head from "next/head";
-import { useRouter } from "next/router";
-import * as React from "react";
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import * as React from 'react';
 
 const metadata = {
-  title: "",
-  site: "",
-  description: "",
-  url: "",
-  type: "website",
-  robots: "follow, index",
-  image: "",
+  title: '',
+  site: '',
+  description: '',
+  url: '',
+  type: 'website',
+  robots: 'follow, index',
+  image: '',
 };
 
 type SeoProps = {
   date?: string;
   templateTitle?: string;
+  children?: React.ReactNode;
 } & Partial<typeof metadata>;
 
 export const Seo: React.FC<SeoProps> = (props) => {
@@ -23,7 +24,7 @@ export const Seo: React.FC<SeoProps> = (props) => {
     ...metadata,
     ...props,
   };
-  meta["title"] = props.templateTitle ? `${props.templateTitle} | ${meta.site}` : meta.title;
+  meta['title'] = props.templateTitle ? `${props.templateTitle} | ${meta.site}` : meta.title;
 
   return (
     <Head>
@@ -46,6 +47,8 @@ export const Seo: React.FC<SeoProps> = (props) => {
       <meta name="twitter:title" content={meta.title} />
       <meta name="twitter:description" content={meta.description} />
       <meta name="twitter:image" content={meta.image} />
+
+      {props.children}
     </Head>
   );
 };

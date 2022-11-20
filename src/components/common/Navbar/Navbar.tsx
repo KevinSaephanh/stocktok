@@ -1,11 +1,11 @@
-import Link from "next/link";
-import * as React from "react";
-import { useAppSelector } from "../../store/hooks";
-import Pepe from "../../assets/pepe-business.png";
-import { ThemeButton } from "../buttons/ThemeButton";
-import { NavLink } from "../link/NavLink";
-import { HamburgerButton } from "../buttons/HamburgerButton";
-import { SearchButton } from "../buttons/SearchButton";
+import Link from 'next/link';
+import * as React from 'react';
+import { useAppSelector } from '../../../store/hooks';
+import Pepe from '../../assets/pepe-business.png';
+import { ThemeButton } from '../../ui/Buttons/ThemeButton';
+import { NavLink } from './NavLink';
+import { HamburgerButton } from '../../ui/Buttons/HamburgerButton';
+import { SearchButton } from '../../ui/Buttons/SearchButton';
 
 export const Navbar: React.FC = () => {
   const user = useAppSelector((state) => state.users.user);
@@ -49,9 +49,9 @@ export const Navbar: React.FC = () => {
             onClick={() => setOpen(!open)}
           >
             {!open ? (
-              <HamburgerButton path={"M4 6h16M4 12h16M4 18h16"} />
+              <HamburgerButton path={'M4 6h16M4 12h16M4 18h16'} />
             ) : (
-              <HamburgerButton path={"M6 18L18 6M6 6l12 12"} />
+              <HamburgerButton path={'M6 18L18 6M6 6l12 12'} />
             )}
           </button>
         </div>
@@ -59,21 +59,21 @@ export const Navbar: React.FC = () => {
         {/* Links */}
         <div
           className={
-            "justify-between items-center w-full md:flex md:w-auto md:order-1" +
-            (open ? " flex" : " hidden")
+            'justify-between items-center w-full md:flex md:w-auto md:order-1' +
+            (open ? ' flex' : ' hidden')
           }
           id="example-navbar-danger"
         >
           <ul className="flex flex-col p-4 mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 rounded-lg border border-gray-100 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-            <NavLink href={"/about"} label={"About"} />
-            <NavLink href={"/help"} label={"Help Center"} />
+            <NavLink href={'/about'} label={'About'} />
+            <NavLink href={'/help'} label={'Help Center'} />
             {!user ? (
               <>
-                <NavLink href={"/signup"} label={"Signup"} />
-                <NavLink href={"/login"} label={"Login"} />
+                <NavLink href={'/signup'} label={'Signup'} />
+                <NavLink href={'/login'} label={'Login'} />
               </>
             ) : (
-              <NavLink href={"#"} label={"Logout"} />
+              <NavLink href={'#'} label={'Logout'} />
             )}
           </ul>
         </div>

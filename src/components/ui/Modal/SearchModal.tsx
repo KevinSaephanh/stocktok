@@ -1,5 +1,5 @@
-import * as React from "react";
-import { SearchButton } from "../buttons/SearchButton";
+import * as React from 'react';
+import { SearchButton } from '../Buttons/SearchButton';
 
 type SearchModalProps = {
   handleHideModal: Function;

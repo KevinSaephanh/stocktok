@@ -1,7 +1,7 @@
-import * as React from "react";
-import type { NextPage } from "next";
-import { SearchModal } from "../components/modals/SearchModal";
-import { SearchButton } from "../components/buttons/SearchButton";
+import * as React from 'react';
+import type { NextPage } from 'next';
+import { SearchButton } from '../components/ui/Buttons/SearchButton';
+import { SearchModal } from '../components/ui/Modal/SearchModal';
 
 const Home: NextPage = () => {
   const [show, setShow] = React.useState(false);
@@ -31,7 +31,7 @@ const Home: NextPage = () => {
           <input
             type="text"
             readOnly={true}
-            className="rounded-full block w-full pl-14 p-2.5"
+            className="pl-14 p-2.5"
             placeholder="Search tickers here"
             onClick={handleShowModal}
           />

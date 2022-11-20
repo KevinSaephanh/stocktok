@@ -1,6 +1,6 @@
-import * as React from "react";
-import { Navbar } from "./Navbar";
-import { Footer } from "./Footer";
+import * as React from 'react';
+import { Navbar } from '../Navbar/Navbar';
+import { Footer } from '../Footer/Footer';
 
 type LayoutProps = {
   children: React.ReactNode;
