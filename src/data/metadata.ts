@@ -1,0 +1,25 @@
+export default {
+  title: 'Stock App',
+  author: 'Kevin Saephanh',
+  headerTitle: 'Stock App',
+  description: 'Stock site',
+  language: 'en-us',
+  theme: 'system',
+  siteUrl: 'https://kevinsaephanh.com/',
+  siteRepo: 'https://github.com/KevinSaephanh/stock-app-ui',
+  locale: 'en-US',
+  openGraph: {
+    title: 'Kevin Saephanh',
+    description: '',
+    type: 'website',
+    url: 'https://kevinsaephanh.com/',
+    siteName: 'Kevin Saephanh',
+    images: [],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    handle: 'KevCoolio',
+    site: 'https://twitter.com/KevCoolio',
+    description: '',
+  },
+};

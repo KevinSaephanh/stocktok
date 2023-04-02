@@ -1,54 +1,35 @@
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 import * as React from 'react';
-
-const metadata = {
-  title: '',
-  site: '',
-  description: '',
-  url: '',
-  type: 'website',
-  robots: 'follow, index',
-  image: '',
-};
+import metadata from '../../../data/metadata';
 
 type SeoProps = {
-  date?: string;
-  templateTitle?: string;
-  children?: React.ReactNode;
-} & Partial<typeof metadata>;
+  title?: string;
+  description?: string;
+  robots?: string;
+  twImage?: string;
+};
 
-export const Seo: React.FC<SeoProps> = (props) => {
-  const router = useRouter();
-  const meta = {
-    ...metadata,
-    ...props,
-  };
-  meta['title'] = props.templateTitle ? `${props.templateTitle} | ${meta.site}` : meta.title;
-
+export const Seo: React.FC<SeoProps> = ({ title, description, robots, twImage }) => {
   return (
     <Head>
-      <title>{meta.title}</title>
-      <meta name="robots" content={meta.robots} />
-      <meta content={meta.description} name="description" />
-      <meta property="og:url" content={`${meta.url}${router.asPath}`} />
-      <link rel="canonical" href={`${meta.url}${router.asPath}`} />
-
-      {/* Open Graph */}
-      <meta property="og:type" content={meta.type} />
-      <meta property="og:site_name" content={meta.site} />
-      <meta property="og:description" content={meta.description} />
-      <meta property="og:title" content={meta.title} />
-      <meta name="image" property="og:image" content={meta.image} />
-
-      {/* Twitter */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@th_clarence" />
-      <meta name="twitter:title" content={meta.title} />
-      <meta name="twitter:description" content={meta.description} />
-      <meta name="twitter:image" content={meta.image} />
-
-      {props.children}
+      <title>{title}</title>
+      <meta key='og:type' property='og:type' content={'website'} />
+      <meta property='og:site_name' content={metadata.openGraph.siteName} />
+      <meta property='og:description' content={metadata.openGraph.description} />
+      <meta property='og:title' content={metadata.openGraph.title} />
+      <meta key='og:locale' property='og:locale' content={metadata.locale} />
+      {metadata.openGraph.images.length
+        ? metadata.openGraph.images.map(({ url }) => (
+            <meta property='og:image' content={url} key={url} />
+          ))
+        : null}
+      <meta key='twitter:card' name='twitter:card' content={metadata.twitter.card} />
+      <meta key='twitter:site' name='twitter:site' content={metadata.twitter.site} />
+      <meta key='twitter:creator' name='twitter:creator' content={metadata.twitter.handle} />
+      <meta name='twitter:description' content={description} />
+      <meta name='twitter:image' content={twImage} />
+      <meta key='robots' name='robots' content={robots ?? 'index,follow'} />
+      <meta key='googlebot' name='googlebot' content={robots ?? 'index,follow'}></meta>
     </Head>
   );
 };
