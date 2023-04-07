@@ -10,69 +10,42 @@ import { SearchModal } from '../../ui/Modal/SearchModal';
 
 export const Navbar: React.FC = () => {
   const user = useAppSelector((state) => state.users.user);
-  const [open, setOpen] = React.useState(false);
-  const [show, setShow] = React.useState(false);
 
-  const toggleShow = () => {
-    console.log('asfa');
-    setShow(true);
-  };
+  const [open, setOpen] = React.useState(false);
+  // const router = useRouter();
 
   return (
-    <nav className='border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900'>
+    <nav
+      className={`w-full flex-none px-2 lg:px-6 md:h-16 z-20 ${
+        open ? 'fixed bg-white dark:bg-zinc-900 pb-4' : 'relative'
+      }`}
+    >
       <div className='flex flex-wrap items-center justify-between'>
-        {/* Logo */}
-        <Link href='/'>
-          <a href='#'>
-            <img src={Pepe.src} className='mr-3 h-9 ml-2' alt='Logo' />
-          </a>
-        </Link>
-
-        {/* Search and Theme Buttons */}
-        <div className='flex md:order-2'>
-          <div className='flex flex-grow items-center'>
-            <button
-              type='submit'
-              className='p-2 font-medium themed-text rounded-full hover:text-blue-500 hover:bg-slate-400 focus:ring-4 focus:outline-none focus:ring-slate-300 dark:hover:bg-slate-700 dark:focus:ring-slate-800'
-            >
-              <SearchButton
-                classes='w-6 h-6'
-                fill='none'
-                viewBox='0 0 24 24'
-                path='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
-                onClick={toggleShow}
-              />
-              <span className='sr-only'>Search</span>
-            </button>
-            <ThemeButton />
-          </div>
-
-          {/* Hamburger menu */}
+        <section className='w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start'>
+          <Link href='/'>
+            <a href='#'>
+              <img src={Pepe.src} className='mr-3 h-9 ml-2' alt='Logo' />
+            </a>
+          </Link>
           <button
             data-collapse-toggle='mobile-menu'
             type='button'
-            className='inline-flex items-center p-2 themed-text rounded-lg md:hidden'
+            className='mt-2 inline-flex items-center p-2 ml-2 themed-text rounded-lg md:hidden'
             aria-controls='mobile-menu-2'
             aria-expanded='false'
             onClick={() => setOpen(!open)}
           >
-            {!open ? (
-              <HamburgerButton path={'M4 6h16M4 12h16M4 18h16'} />
-            ) : (
-              <HamburgerButton path={'M6 18L18 6M6 6l12 12'} />
-            )}
+            <HamburgerButton
+              path={`${!open ? 'M4 6h16M4 12h16M4 18h16' : 'M6 18L18 6M6 6l12 12'}`}
+            />
           </button>
-        </div>
+        </section>
 
-        {/* Links */}
-        <div
-          className={
-            'justify-between items-center w-full md:flex md:w-auto md:order-1' +
-            (open ? ' flex' : ' hidden')
-          }
-          id='example-navbar-danger'
+        <section
+          className={`flex-center flex-col md:flex-row md:flex md:ml-auto w-full md:w-auto pr-2 lg:pr-0
+              ${open ? 'flex' : 'hidden'}`}
         >
-          <ul className='flex flex-col p-4 mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 rounded-lg border border-gray-100 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700'>
+          <ul className='flex flex-col md:flex-row list-none p-2 mt-4 md:space-x-8 md:mt-0'>
             <NavLink href={'/about'} label={'About'} />
             <NavLink href={'/help'} label={'Help Center'} />
             {!user ? (
@@ -84,10 +57,9 @@ export const Navbar: React.FC = () => {
               <NavLink href={'#'} label={'Logout'} />
             )}
           </ul>
-        </div>
+          <ThemeButton />
+        </section>
       </div>
-
-      <SearchModal show={show} handleHideModal={() => setShow(false)} />
     </nav>
   );
 };

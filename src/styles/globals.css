@@ -12,7 +12,7 @@
   }
 
   .link-item {
-    @apply rounded md:bg-transparent md:p-0 hover:text-slate-400 dark:hover:text-slate-500;
+    @apply rounded md:bg-transparent md:p-0;
   }
 
   .social-btn {
