@@ -18,4 +18,12 @@
   .social-btn {
     @apply themed-text flex items-center justify-center w-full px-4 py-2 text-sm border border-gray-300 rounded-lg hover:border-gray-500 focus:border-gray-500;
   }
+
+  .highlight {
+    @apply text-sky-700 dark:text-sky-500 border-sky-700 dark:border-sky-500;
+  }
+
+  .active-link {
+    @apply highlight underline;
+  }
 }
