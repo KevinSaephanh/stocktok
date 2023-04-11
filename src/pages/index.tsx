@@ -7,9 +7,11 @@ const Home: NextPage = () => {
   const [show, setShow] = React.useState(false);
 
   return (
-    <div className='container flex items-center justify-between mx-auto'>
-      <div className='relative md:px-20 w-full sm:w-5/6 max-w-3xl'>
-        <h1 className='text-6xl font-bold tracking-wide pb-8 md:pb-12'>Title or Welcome Here</h1>
+    <>
+      <div className='flex-center flex-col relative w-full lg:w-2/5 md:w-2/3 md:mx-auto'>
+        <h1 className='text-center text-2xl font-bold tracking-wide pb-8 md:pb-12'>
+          See what your fellow traders are saying about certain stocks
+        </h1>
         <div className='relative w-full'>
           <div className='flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none'>
             <SearchButton
@@ -23,14 +25,14 @@ const Home: NextPage = () => {
             type='text'
             readOnly={true}
             className='pl-14 p-2.5'
-            placeholder='Search tickers here'
+            placeholder='Start searching here'
             onClick={() => setShow(true)}
           />
         </div>
       </div>
 
       <SearchModal show={show} handleHideModal={() => setShow(false)} />
-    </div>
+    </>
   );
 };
 
