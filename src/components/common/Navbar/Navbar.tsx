@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import * as React from 'react';
-import { useAppSelector } from '../../../store/hooks';
 import Image from 'next/image';
 import { ThemeButton } from '../../ui/Buttons/ThemeButton';
 import { NavLink } from './NavLink';
@@ -9,7 +8,7 @@ import { SearchButton } from '../../ui/Buttons/SearchButton';
 import { SearchModal } from '../../ui/Modal/SearchModal';
 
 export const Navbar: React.FC = () => {
-  const user = useAppSelector((state) => state.users.user);
+  const user = {};
   const [open, setOpen] = React.useState(false);
 
   return (

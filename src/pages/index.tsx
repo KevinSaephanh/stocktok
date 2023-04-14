@@ -10,7 +10,7 @@ const Home: NextPage = () => {
     <>
       <div className='flex-center flex-col relative w-full lg:w-2/5 md:w-2/3 md:mx-auto'>
         <h1 className='text-center text-2xl font-bold tracking-wide pb-8 md:pb-12'>
-          See what your fellow traders are saying about certain stocks
+          See what fellow traders are saying about certain stocks
         </h1>
         <div className='relative w-full'>
           <div className='flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none'>
