@@ -1,38 +1,45 @@
 import { authExchange } from '@urql/exchange-auth';
-import { getEnvVar } from './get-env-var';
+import { getLocalStorageItem, setLocalStorageItem } from './local-storage';
 
-async function initializeAuthState() {
-  const accessToken = await AsyncStorage.getItem(getEnvVar('ACCESS_TOKEN_SECRET'));
-  const refreshToken = await AyncStorage.getItem(getEnvVar('REFRESH_TOKEN_SECRET'));
-  return { accessToken, refreshToken };
+export interface AuthState {
+  isAuth: boolean;
+  user: {};
 }
 
-authExchange(async (utils) => {
-  let { accessToken, refreshToken } = initializeAuthState();
+export const getTokens = () => {
+  const accessToken = getLocalStorageItem('access_token');
+  const refreshToken = getLocalStorageItem('refresh_token');
+  return { accessToken, refreshToken };
+};
+
+export const auth = authExchange(async (utils) => {
+  let { accessToken, refreshToken } = getTokens();
   return {
     addAuthToOperation(operation) {
-      if (!accessToken) {
+      if (!accessToken || !refreshToken) {
         return operation;
       }
+
       return utils.appendHeaders(operation, {
         Authorization: `Bearer ${accessToken}`,
       });
     },
-    didAuthError(error, _operation) {
-      return error.response.status === 401;
-    },
     async refreshAuth() {
-      const result = await utils.mutate(getEnvVar('REFRESH_TOKEN_SECRET'), { refreshToken });
+      const result = await utils.mutate('refresh_token', { refreshToken });
+      const refresh = result.data?.refreshLogin;
 
-      if (result.data?.refreshLogin) {
-        accessToken = result.data.refreshLogin.accessToken;
-        refreshToken = result.data.refreshLogin.refreshToken;
-        localStorage.setItem('accessToken', accessToken);
-        localStorage.setItem('refreshToken', refreshToken);
+      if (refresh) {
+        accessToken = refresh.accessToken as string;
+        refreshToken = refresh.refreshToken as string;
+        setLocalStorageItem('access_token', accessToken);
+        setLocalStorageItem('refresh_token', refreshToken);
       } else {
         localStorage.clear();
         // logout();
       }
+    },
+    didAuthError(error, _operation) {
+      return error.response.status === 401;
     },
   };
 });
