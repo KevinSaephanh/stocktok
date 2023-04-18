@@ -8,7 +8,7 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <div className='flex-center flex-col relative w-full lg:w-2/5 md:w-2/3 md:mx-auto'>
+      <div className='h-full flex-center flex-col relative w-full lg:w-2/5 md:w-2/3 md:mx-auto'>
         <h1 className='text-center text-2xl font-bold tracking-wide pb-8 md:pb-12'>
           See what fellow traders are saying about certain stocks
         </h1>
