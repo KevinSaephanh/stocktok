@@ -2,16 +2,18 @@ import React from 'react';
 
 type ListProps<T> = {
   items: T[];
+  classes?: string;
   getItem: (item: T, index: number) => string;
   handleRemove: (item: T) => void;
 };
 
 export const List = <T,>({
   items,
+  classes,
   getItem,
   handleRemove,
 }: React.PropsWithChildren<ListProps<T>>): JSX.Element => (
-  <ul>
+  <ul className={`${classes}`}>
     {items.map((item, index) => (
       <li className='flex justify-between'>
         <span>{getItem(item, index)}</span>
