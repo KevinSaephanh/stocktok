@@ -1,10 +1,20 @@
 import * as React from 'react';
 import { SearchButton } from '../Buttons/SearchButton';
+import { List } from '../List/List';
 
 type SearchModalProps = {
   show: boolean;
   handleHideModal: Function;
 };
+
+const mockList = [
+  { symbol: 'AAPL', name: 'APPLE INC.', logo: '' },
+  { symbol: 'SPY', name: 'SPDR S&P 500 ETF TRUST', logo: '' },
+  { symbol: 'SPX', name: 'S&P 500', logo: '' },
+  { symbol: 'TSLA', name: 'TESLA INC.', logo: '' },
+  { symbol: 'BTCUSDT', name: 'BITCOIN / TETHERUS', logo: '' },
+  { symbol: 'NVDA', name: 'NVIDIA CORPORATION', logo: '' },
+];
 
 export const SearchModal: React.FC<SearchModalProps> = ({ show, handleHideModal }) => {
   const inputRef = React.useRef() as React.MutableRefObject<HTMLInputElement>;
@@ -18,7 +28,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ show, handleHideModal 
       {show ? (
         <div
           aria-hidden='true'
-          className='fade fixed top-0 left-0 w-full h-full outline-none overflow-x-hidden overflow-y-auto'
+          className='fade absolute inset-1/2 -translate-x-1/2 -translate-y-1/2 w-full lg:w-3/5 h-full lg:h-3/5 z-50 outline-none overflow-x-hidden overflow-y-auto'
         >
           <div className='relative p-4 w-auto max-w-6xl pointer-events-none h-full md:h-auto'>
             <div className='border-none relative flex flex-col w-full pointer-events-auto bg-clip-padding outline-none text-current bg-white rounded-lg shadow dark:bg-gray-700'>
@@ -69,6 +79,22 @@ export const SearchModal: React.FC<SearchModalProps> = ({ show, handleHideModal 
                   </div>
                 </form>
               </div>
+
+              <List
+                items={mockList}
+                getItem={(value, index) => {
+                  const { symbol, name } = value;
+                  return (
+                    <span className='flex flex-row w-5/6'>
+                      <img src='' />
+                      <p className='w-1/6'>{symbol}</p>
+                      <p className='3/5'>{name}</p>
+                    </span>
+                  );
+                }}
+                listClasses='px-6 pb-2'
+                itemClasses='cursor-pointer hover:opacity-50 mb-4 flex justify-between font-bold'
+              />
             </div>
           </div>
         </div>

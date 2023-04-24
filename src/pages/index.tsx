@@ -1,16 +1,16 @@
 import * as React from 'react';
-import type { NextPage } from 'next';
 import { SearchButton } from '../components/ui/Buttons/SearchButton';
 import { SearchModal } from '../components/ui/Modal/SearchModal';
+import { withUrql } from '../graphql/with-urql';
 
-const Home: NextPage = () => {
+const Home = () => {
   const [show, setShow] = React.useState(false);
 
   return (
     <>
       <div className='h-full flex-center flex-col relative w-full lg:w-2/5 md:w-2/3 md:mx-auto'>
         <h1 className='text-center text-2xl font-bold tracking-wide pb-8 md:pb-12'>
-          See what fellow traders are saying about certain stocks
+          Don't be out of the loop. Find out what fellow traders are saying about certain stocks
         </h1>
         <div className='relative w-full'>
           <div className='flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none'>
@@ -36,4 +36,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default withUrql(Home);
