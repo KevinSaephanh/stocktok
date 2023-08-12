@@ -1,19 +1,43 @@
-import { UseFormRegisterReturn } from 'react-hook-form';
-import { FieldWrapper, FieldWrapperPassThroughProps } from './FieldWrapper';
+import React from 'react';
 
-// Credit: https://github.com/alan2207/bulletproof-react/blob/master/src/components/Form/InputField.tsx
+type InputFieldProps = {
+  value: string;
+  label?: string;
+  labelStyles?: string;
+  inputStyles?: string;
+  name?: string;
+  placeholder?: string;
+  type: 'text' | 'email' | 'password';
+} & Omit<
+  React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>,
+  'size'
+>;
 
-type InputFieldProps = FieldWrapperPassThroughProps & {
-  type?: 'text' | 'email' | 'password';
-  className?: string;
-  registration: Partial<UseFormRegisterReturn>;
-};
-
-export const InputField = (props: InputFieldProps) => {
-  const { type = 'text', label, className, registration, error } = props;
+export const InputField: React.FC<InputFieldProps> = ({
+  value,
+  label,
+  labelStyles,
+  inputStyles,
+  name,
+  placeholder,
+  type,
+  ...props
+}) => {
   return (
-    <FieldWrapper label={label} error={error}>
-      <input type={type} className='' {...registration} />
-    </FieldWrapper>
+    <>
+      {label && (
+        <label htmlFor='input-field' className={`themed-text pb-2 ${labelStyles}`}>
+          {label}
+        </label>
+      )}
+      <input
+        className={`rounded p-2 mb-4 ${inputStyles}`}
+        type={type}
+        value={value}
+        name={name}
+        placeholder={placeholder}
+        {...props}
+      />
+    </>
   );
 };

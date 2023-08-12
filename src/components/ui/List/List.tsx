@@ -4,7 +4,7 @@ type ListProps<T> = {
   items: T[];
   listClasses?: string;
   itemClasses?: string;
-  getItem: (value: T, index: number) => ReactNode;
+  getItem: (value: T, index: number) => string | ReactNode;
   handleRemove?: (item: T) => void;
 };
 
@@ -19,7 +19,6 @@ export const List = <T,>({
     {items.map((item, index) => (
       <li className={`${itemClasses} flex justify-between`}>
         {getItem(item, index)}
-
         {handleRemove ? (
           <svg
             className='h-6 w-6'

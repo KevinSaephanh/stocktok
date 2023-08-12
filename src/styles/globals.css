@@ -3,8 +3,20 @@
 @tailwind utilities;
 
 @layer components {
+  body {
+    @apply dark:bg-black dark:bg-opacity-70;
+  }
+
   input {
-    @apply text-black font-semibold text-xl rounded-full block w-full dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 border-4 focus:ring-blue-500 focus:border-blue-500;
+    @apply themed-text font-semibold text-xl rounded-full block w-full dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 border-4 focus:ring-blue-500 focus:border-blue-500;
+  }
+
+  button {
+    @apply themed-text flex items-center justify-center px-4 py-2 text-sm border border-gray-300 rounded-lg hover:border-gray-500 focus:border-gray-500;
+  }
+
+  .hyperlink {
+    @apply cursor-pointer font-semibold hover:opacity-70 text-blue-700;
   }
 
   .flex-center {
@@ -17,10 +29,6 @@
 
   .link-item {
     @apply rounded md:bg-transparent md:p-0;
-  }
-
-  .social-btn {
-    @apply themed-text flex items-center justify-center w-full px-4 py-2 text-sm border border-gray-300 rounded-lg hover:border-gray-500 focus:border-gray-500;
   }
 
   .highlight {

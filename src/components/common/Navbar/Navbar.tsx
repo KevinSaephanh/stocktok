@@ -4,31 +4,29 @@ import Image from 'next/image';
 import { ThemeButton } from '../../ui/Buttons/ThemeButton';
 import { NavLink } from './NavLink';
 import { HamburgerButton } from '../../ui/Buttons/HamburgerButton';
-import { SearchButton } from '../../ui/Buttons/SearchButton';
-import { SearchModal } from '../../ui/Modal/SearchModal';
 
 export const Navbar: React.FC = () => {
-  const user = {};
+  const user = null;
   const [open, setOpen] = React.useState(false);
 
   return (
     <nav
-      className={`w-full flex-none px-2 lg:px-6 md:h-16 z-20 dark:bg-gray-900 ${
+      className={`w-full flex-none px-2 lg:px-6 md:h-16 z-20 shadow-md dark:shadow-none ${
         open ? 'fixed pb-4' : 'relative'
       }`}
     >
       <div className='flex flex-wrap items-center justify-between'>
         <section className='w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start'>
-          {/* <Link href='/'>
+          <Link href='/'>
             <Image
               src='/assets/pepe-business.png'
               alt='pepe'
               height={35}
               width={35}
               layout='fixed'
-              className='mt-4'
+              className='mt-4 cursor-pointer'
             />
-          </Link> */}
+          </Link>
           <button
             data-collapse-toggle='mobile-menu'
             type='button'

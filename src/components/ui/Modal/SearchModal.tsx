@@ -25,13 +25,13 @@ export const SearchModal: React.FC<SearchModalProps> = ({ show, handleHideModal 
 
   return (
     <>
-      {show ? (
+      {show && (
         <div
           aria-hidden='true'
           className='fade absolute inset-1/2 -translate-x-1/2 -translate-y-1/2 w-full lg:w-3/5 h-full lg:h-3/5 z-50 outline-none overflow-x-hidden overflow-y-auto'
         >
           <div className='relative p-4 w-auto max-w-6xl pointer-events-none h-full md:h-auto'>
-            <div className='border-none relative flex flex-col w-full pointer-events-auto bg-clip-padding outline-none text-current bg-white rounded-lg shadow dark:bg-gray-700'>
+            <div className='border-none relative flex flex-col w-full pointer-events-auto bg-clip-padding outline-none text-current bg-white rounded-lg shadow dark:bg-gray-800'>
               <div className='flex flex-shrink-0 items-center justify-between pt-4 px-4 border-b border-gray-400 rounded-t-md'>
                 <h3 className='mb-4 text-xl font-medium text-gray-900 dark:text-white'>
                   Ticker Search
@@ -72,7 +72,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ show, handleHideModal 
                     <input
                       name='search'
                       ref={inputRef}
-                      className='pl-10 themed-text w-full rounded-lg p-2'
+                      className='pl-10 w-full rounded-lg p-2'
                       placeholder='Search symbol, eg. NVDA'
                       required
                     />
@@ -82,7 +82,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ show, handleHideModal 
 
               <List
                 items={mockList}
-                getItem={(value, index) => {
+                getItem={(value, _index) => {
                   const { symbol, name } = value;
                   return (
                     <span className='flex flex-row w-5/6'>
@@ -98,7 +98,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ show, handleHideModal 
             </div>
           </div>
         </div>
-      ) : null}
+      )}
     </>
   );
 };
