@@ -14,6 +14,7 @@ export const getTokens = () => {
 
 export const auth = authExchange(async (utils) => {
   let { accessToken, refreshToken } = getTokens();
+
   return {
     addAuthToOperation(operation) {
       if (!accessToken || !refreshToken) {
