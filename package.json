@@ -6,20 +6,13 @@
     "start": "next start"
   },
   "dependencies": {
-    "@urql/core": "^4.0.4",
-    "@urql/exchange-auth": "^2.1.0",
-    "alphavantage": "^2.4.1",
     "axios": "^0.27.2",
     "next": "latest",
     "next-auth": "^4.10.3",
     "next-themes": "^0.2.0",
-    "next-urql": "^5.0.0",
     "react": "18.1.0",
     "react-dom": "18.1.0",
-    "react-hook-form": "^7.34.2",
-    "swr": "^2.1.1",
-    "urql": "^4.0.0",
-    "yup": "^0.32.11"
+    "swr": "^2.1.1"
   },
   "devDependencies": {
     "@types/node": "17.0.35",

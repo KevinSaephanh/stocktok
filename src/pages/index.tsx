@@ -2,21 +2,15 @@ import * as React from 'react';
 import Image from 'next/image';
 import { SearchButton } from '../components/ui/Buttons/SearchButton';
 import { SearchModal } from '../components/ui/Modal/SearchModal';
-import { withUrql } from '../graphql/with-urql';
 import { getTextColorByPriceDelta } from '../utils/get-text-color-by-price-delta';
-import { useQuery } from 'urql';
-import { WithUrqlProps } from 'next-urql';
-import { queryIndices } from '../graphql/alphavantage/query-indices.gql';
 
-const Home = ({ pageProps }: WithUrqlProps) => {
+const Home = () => {
   const [show, setShow] = React.useState(false);
   const futures = [
     { name: 'S&P 500', price: 12345, priceChange: '+12.02', percentChange: '+1.05%', logo: '' },
     { name: 'Dow Jones', price: 33325, priceChange: '+23.33', percentChange: '+0.65%', logo: '' },
     { name: 'Nasdaq', price: 31345, priceChange: '+111.45', percentChange: '+1.15%', logo: '' },
   ];
-
-  console.log(pageProps);
 
   return (
     <>
@@ -83,16 +77,11 @@ const Home = ({ pageProps }: WithUrqlProps) => {
 };
 
 export async function getServerSideProps() {
-  const [result] = await useQuery({
-    query: queryIndices,
-  });
-  const { data, error } = result;
-
   return {
     props: {
-      data,
+      data: { key: 'HELLO', value: 'WORLD' },
     },
   };
 }
 
-export default withUrql(Home);
+export default Home;
