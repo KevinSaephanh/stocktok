@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import * as React from 'react';
 import Image from 'next/image';
-import { ThemeButton } from '../../ui/Buttons/ThemeButton';
+import { ThemeButton } from '../Buttons/ThemeButton';
 import { NavLink } from './NavLink';
-import { HamburgerButton } from '../../ui/Buttons/HamburgerButton';
+import { HamburgerButton } from '../Buttons/HamburgerButton';
 
 export const Navbar: React.FC = () => {
   const user = null;

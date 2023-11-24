@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Image from 'next/image';
-import { SearchButton } from '@components/ui/Buttons/SearchButton';
-import { SearchModal } from '@components/ui/Modal/SearchModal';
+import { SearchButton } from '@components/Buttons/SearchButton';
+import { SearchModal } from '@components/Modal/SearchModal';
 import { setColorByPriceDelta } from '@utils/setColorByPriceDelta';
 
 const Home = () => {

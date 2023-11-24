@@ -1,12 +1,11 @@
 import React from 'react';
-import axios from 'axios';
 import { signIn } from 'next-auth/react';
-import { FormWrapper } from '../ui/Form/FormWrapper';
-import { InputField } from '../ui/Form/InputField';
-import { AuthSocials } from './AuthSocials';
 import { useRouter } from 'next/router';
+import { FormWrapper } from '@components/Form/FormWrapper';
+import { InputField } from '@components/Form/InputField';
+import { AuthSocials } from '@components/Icons/AuthSocials';
 
-export const LoginForm: React.FC = () => {
+export const SignInForm: React.FC = () => {
   const router = useRouter();
   const [inputs, setInputs] = React.useState({
     email: '',
@@ -35,26 +34,26 @@ export const LoginForm: React.FC = () => {
       <FormWrapper
         submitDisabled={submitDisabled()}
         handleSubmit={handleSubmit}
-        styles='md:w-8/12 lg:w-5/12 lg:ml-20'
+        styles="md:w-8/12 lg:w-5/12 lg:ml-20"
       >
         <AuthSocials />
         <InputField
-          label='Email'
-          type='email'
-          name='email'
-          placeholder='email'
+          label="Email"
+          type="email"
+          name="email"
+          placeholder="email"
           minLength={5}
           maxLength={25}
           value={inputs.email}
           onChange={handleChange}
-          inputStyles='mb-6'
+          inputStyles="mb-6"
           required
         />
         <InputField
-          label='Password'
-          type='password'
-          name='password'
-          placeholder='password'
+          label="Password"
+          type="password"
+          name="password"
+          placeholder="password"
           minLength={8}
           maxLength={25}
           value={inputs.password}
@@ -62,10 +61,10 @@ export const LoginForm: React.FC = () => {
           required
         />
       </FormWrapper>
-      <span className='mt-6'>
+      <span className="mt-6">
         Don&rsquo;t have an account?{' '}
         <a
-          className='hyperlink'
+          className="hyperlink"
           onClick={() => {
             router.push('/signup');
           }}

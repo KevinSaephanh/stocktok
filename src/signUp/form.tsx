@@ -1,11 +1,11 @@
 import React from 'react';
 import axios from 'axios';
-import { FormWrapper } from '../ui/Form/FormWrapper';
-import { InputField } from '../ui/Form/InputField';
-import { AuthSocials } from './AuthSocials';
 import { useRouter } from 'next/router';
+import { FormWrapper } from '@components/Form/FormWrapper';
+import { InputField } from '@components/Form/InputField';
+import { AuthSocials } from '@components/Icons/AuthSocials';
 
-export const SignupForm: React.FC = () => {
+export const SignUpForm: React.FC = () => {
   const router = useRouter();
   const [inputs, setInputs] = React.useState({
     email: '',
@@ -28,7 +28,12 @@ export const SignupForm: React.FC = () => {
 
   const submitDisabled = () => {
     const { email, username, password, confirmPassword } = inputs;
-    return email === '' || password === '' || username === '' || confirmPassword === '';
+    return (
+      email === '' ||
+      password === '' ||
+      username === '' ||
+      confirmPassword === ''
+    );
   };
 
   return (
@@ -36,14 +41,14 @@ export const SignupForm: React.FC = () => {
       <FormWrapper
         submitDisabled={submitDisabled()}
         handleSubmit={handleSubmit}
-        styles='md:w-8/12 lg:w-5/12 lg:ml-20'
+        styles="md:w-8/12 lg:w-5/12 lg:ml-20"
       >
         <AuthSocials />
         <InputField
-          label='Username'
-          type='text'
-          name='username'
-          placeholder='username'
+          label="Username"
+          type="text"
+          name="username"
+          placeholder="username"
           minLength={4}
           maxLength={15}
           value={inputs.username}
@@ -51,10 +56,10 @@ export const SignupForm: React.FC = () => {
           required
         />
         <InputField
-          label='Email'
-          type='email'
-          name='email'
-          placeholder='email'
+          label="Email"
+          type="email"
+          name="email"
+          placeholder="email"
           minLength={5}
           maxLength={25}
           value={inputs.email}
@@ -62,10 +67,10 @@ export const SignupForm: React.FC = () => {
           required
         />
         <InputField
-          label='Password'
-          type='password'
-          name='password'
-          placeholder='password'
+          label="Password"
+          type="password"
+          name="password"
+          placeholder="password"
           minLength={8}
           maxLength={25}
           value={inputs.password}
@@ -73,19 +78,19 @@ export const SignupForm: React.FC = () => {
           required
         />
         <InputField
-          label='Confirm Password'
-          type='password'
-          name='confirmPassword'
-          placeholder='confirm password'
+          label="Confirm Password"
+          type="password"
+          name="confirmPassword"
+          placeholder="confirm password"
           value={inputs.confirmPassword}
           onChange={handleChange}
           required
         />
       </FormWrapper>
-      <span className='mt-6'>
+      <span className="mt-6">
         Already have an account?{' '}
         <a
-          className='hyperlink'
+          className="hyperlink"
           onClick={() => {
             router.push('/login');
           }}
