@@ -49,14 +49,13 @@ export const Navbar: React.FC = () => {
         >
           <ul className="flex flex-col md:flex-row list-none p-2 mt-4 md:space-x-8 md:mt-0">
             <NavLink href={'/about'} label={'About'} />
-            <NavLink href={'/help'} label={'Help'} />
             {!user ? (
               <>
-                <NavLink href={'/signup'} label={'Signup'} />
-                <NavLink href={'/login'} label={'Login'} />
+                <NavLink href={'/signup'} label={'Sign up'} />
+                <NavLink href={'/signin'} label={'Sign in'} />
               </>
             ) : (
-              <NavLink href={'#'} label={'Logout'} />
+              <NavLink href={'#'} label={'Sign out'} />
             )}
           </ul>
           <ThemeButton />
