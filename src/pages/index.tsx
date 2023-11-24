@@ -1,32 +1,32 @@
-import * as React from "react";
-import Image from "next/image";
-import { SearchButton } from "@components/ui/Buttons/SearchButton";
-import { SearchModal } from "@components/ui/Modal/SearchModal";
-import { getTextColorByPriceDelta } from "@utils/get-text-color-by-price-delta";
+import * as React from 'react';
+import Image from 'next/image';
+import { SearchButton } from '@components/ui/Buttons/SearchButton';
+import { SearchModal } from '@components/ui/Modal/SearchModal';
+import { setColorByPriceDelta } from '@utils/setColorByPriceDelta';
 
 const Home = () => {
   const [show, setShow] = React.useState(false);
   const futures = [
     {
-      name: "S&P 500",
+      name: 'S&P 500',
       price: 12345,
-      priceChange: "+12.02",
-      percentChange: "+1.05%",
-      logo: "",
+      priceChange: '+12.02',
+      percentChange: '+1.05%',
+      logo: '',
     },
     {
-      name: "Dow Jones",
+      name: 'Dow Jones',
       price: 33325,
-      priceChange: "+23.33",
-      percentChange: "+0.65%",
-      logo: "",
+      priceChange: '+23.33',
+      percentChange: '+0.65%',
+      logo: '',
     },
     {
-      name: "Nasdaq",
+      name: 'Nasdaq',
       price: 31345,
-      priceChange: "+111.45",
-      percentChange: "+1.15%",
-      logo: "",
+      priceChange: '+111.45',
+      percentChange: '+1.15%',
+      logo: '',
     },
   ];
 
@@ -56,13 +56,11 @@ const Home = () => {
                   </span>
                   <span className="text-xl">{price}</span>
                   <span>
-                    <strong
-                      className={`${getTextColorByPriceDelta(priceChange)}`}
-                    >
+                    <strong className={`${setColorByPriceDelta(priceChange)}`}>
                       {priceChange}
-                    </strong>{" "}
+                    </strong>{' '}
                     <strong
-                      className={`${getTextColorByPriceDelta(percentChange)}`}
+                      className={`${setColorByPriceDelta(percentChange)}`}
                     >
                       {percentChange}
                     </strong>
@@ -105,7 +103,7 @@ const Home = () => {
 export async function getServerSideProps() {
   return {
     props: {
-      data: { key: "HELLO", value: "WORLD" },
+      data: { key: 'HELLO', value: 'WORLD' },
     },
   };
 }
