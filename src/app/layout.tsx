@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { Navbar } from './components/Navbar/Navbar';
-import { Footer } from './components/Footer/Footer';
 import Provider from 'provider';
 import { Seo } from '@components/SEO/Seo';
+import { Footer } from '@components/Footer/Footer';
+import { Navbar } from '@components/Navbar/Navbar';
 
 type RootLayoutProps = {
   children: React.ReactNode;

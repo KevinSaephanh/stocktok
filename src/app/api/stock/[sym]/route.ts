@@ -87,8 +87,8 @@ async function requestSeekingAlpha(symbol: string, uri: string) {
   const url = `${process.env['SEEKING_ALPHA_URL']}/${uri}/${symbol}?size=5&number=1`;
   const { data } = await axios.get(url, {
     headers: {
-      'X-RapidAPI-Key': process.env['RAPID_API_KEY']!,
-      'X-RapidAPI-Host': process.env['RAPID_API_HOST']!,
+      'X-RapidAPI-Key': process.env['RAPID_API_KEY'],
+      'X-RapidAPI-Host': process.env['RAPID_API_HOST'],
     },
   });
   const res: SeekingAlphaResponse[] = [];

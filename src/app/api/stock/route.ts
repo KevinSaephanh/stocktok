@@ -3,9 +3,11 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function POST(req: NextApiRequest, res: NextApiResponse) {
   const stocks = [];
+  const baseUrl = process.env['ALPHA_VANTAGE_URL'];
+  const apiKey = process.env['ALPHA_VANTAGE_API_KEY'];
 
   for (const s of req.body.symbols) {
-    const url = `${process.env['ALPHA_VANTAGE_URL']}?function=GLOBAL_QUOTE&symbol=${s}&apikey=${process.env['ALPHA_VANTAGE_API_KEY']}`;
+    const url = `${baseUrl}?function=GLOBAL_QUOTE&symbol=${s}&apikey=${apiKey}`;
     const quote = (await axios.get(url)).data['GLOBAL_QUOTE'];
     stocks.push({
       symbol: quote['01. symbol'],

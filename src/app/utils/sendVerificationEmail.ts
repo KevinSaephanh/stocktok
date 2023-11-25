@@ -1,9 +1,8 @@
-import SMTPTransport from 'nodemailer/lib/smtp-transport';
-import { createTransport, Transporter } from 'nodemailer';
+import { createTransport } from 'nodemailer';
 import { User } from '../../prisma/client';
 
 export const sendVerificationEmail = async ({ id, email, username }: User) => {
-  const token = signToken(id, 'email');
+  const token = id; //signToken(id, 'email');
   const mailer = createTransport({ url: process.env['SMTP'] });
   await mailer.sendMail({
     to: email,
@@ -17,6 +16,6 @@ export const sendVerificationEmail = async ({ id, email, username }: User) => {
     <br /><br />
     Thank you,
     <br />
-    Stonks App`,
+    StockTok`,
   });
 };

@@ -3,7 +3,7 @@ import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { FormWrapper } from '@components/Form/FormWrapper';
 import { InputField } from '@components/Form/InputField';
-import { AuthSocials } from '@components/Icons/AuthSocials';
+import { AuthSocials } from '@components/Auth/AuthSocials';
 
 export const SignInForm: React.FC = () => {
   const router = useRouter();
