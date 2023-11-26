@@ -8,9 +8,9 @@ type RootLayoutProps = {
   children: React.ReactNode;
 };
 
-export const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html>
+    <html lang="en">
       <Seo />
       <body className="flex h-screen flex-col justify-between">
         <Provider>
@@ -23,4 +23,4 @@ export const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
       </body>
     </html>
   );
-};
+}

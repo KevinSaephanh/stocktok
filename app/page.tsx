@@ -4,7 +4,7 @@ import { SearchButton } from '@components/Buttons/SearchButton';
 import { SearchModal } from '@components/Modal/SearchModal';
 import { setColorByPriceDelta } from '@utils/setColorByPriceDelta';
 
-const Home = () => {
+export default async function Home() {
   const [show, setShow] = React.useState(false);
   const futures = [
     {
@@ -98,7 +98,7 @@ const Home = () => {
       <SearchModal show={show} handleHideModal={() => setShow(false)} />
     </>
   );
-};
+}
 
 export async function getServerSideProps() {
   return {
@@ -107,5 +107,3 @@ export async function getServerSideProps() {
     },
   };
 }
-
-export default Home;

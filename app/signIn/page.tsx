@@ -1,7 +1,6 @@
-import { NextPage } from 'next';
 import { SignInForm } from './form';
 
-const SignIn: NextPage = () => {
+export default function Page() {
   return (
     <>
       <div className="px-6 py-12 h-full">
@@ -11,6 +10,4 @@ const SignIn: NextPage = () => {
       </div>
     </>
   );
-};
-
-export default SignIn;
+}

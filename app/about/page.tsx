@@ -1,6 +1,4 @@
-import { NextPage } from 'next';
-
-const About: NextPage = () => {
+export default function Page() {
   return (
     <>
       <section className="heading text-center h-24 md:h-32">
@@ -54,6 +52,4 @@ const About: NextPage = () => {
       </section>
     </>
   );
-};
-
-export default About;
+}

@@ -19,10 +19,11 @@
         "name": "next"
       }
     ],
-    "baseUrl": "./src/app",
+    "baseUrl": "./app",
     "paths": {
       "@components/*": ["components/*"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@api/*": ["api/*"]
     }
   },
   "include": [
