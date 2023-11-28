@@ -1,9 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
-import { FormWrapper } from '@components/Form/FormWrapper';
-import { InputField } from '@components/Form/InputField';
-import { AuthSocials } from '@components/Auth/AuthSocials';
+import { AuthSocials } from '@/components/Auth/AuthSocials';
+import { FormWrapper } from '@/components/Form/FormWrapper';
+import { InputField } from '@/components/Form/InputField';
 
 export const SignUpForm: React.FC = () => {
   const router = useRouter();

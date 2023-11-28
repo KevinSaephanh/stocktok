@@ -19,11 +19,9 @@
         "name": "next"
       }
     ],
-    "baseUrl": "./app",
+    "baseUrl": ".",
     "paths": {
-      "@components/*": ["components/*"],
-      "@utils/*": ["utils/*"],
-      "@api/*": ["api/*"]
+      "@/*": ["./src/*"]
     }
   },
   "include": [

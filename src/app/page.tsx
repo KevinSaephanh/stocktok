@@ -1,8 +1,14 @@
 import * as React from 'react';
 import Image from 'next/image';
-import { SearchButton } from '@components/Buttons/SearchButton';
-import { SearchModal } from '@components/Modal/SearchModal';
-import { setColorByPriceDelta } from '@utils/setColorByPriceDelta';
+import axios from 'axios';
+import { SearchButton } from '@/components/Buttons/SearchButton';
+import { SearchModal } from '@/components/Modal/SearchModal';
+import { setColorByPriceDelta } from '@/utils/setColorByPriceDelta';
+
+async function getFutures() {
+  const { data } = await axios.get('');
+  return data;
+}
 
 export default async function Home() {
   const [show, setShow] = React.useState(false);
@@ -98,12 +104,4 @@ export default async function Home() {
       <SearchModal show={show} handleHideModal={() => setShow(false)} />
     </>
   );
-}
-
-export async function getServerSideProps() {
-  return {
-    props: {
-      data: { key: 'HELLO', value: 'WORLD' },
-    },
-  };
 }

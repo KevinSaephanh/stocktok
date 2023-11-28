@@ -1,9 +1,9 @@
 import React from 'react';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/router';
-import { FormWrapper } from '@components/Form/FormWrapper';
-import { InputField } from '@components/Form/InputField';
-import { AuthSocials } from '@components/Auth/AuthSocials';
+import { AuthSocials } from '@/components/Auth/AuthSocials';
+import { FormWrapper } from '@/components/Form/FormWrapper';
+import { InputField } from '@/components/Form/InputField';
 
 export const SignInForm: React.FC = () => {
   const router = useRouter();
